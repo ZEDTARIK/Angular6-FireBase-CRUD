@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Operation off Employee</div>
+  <div class="card-body">
+  
+    <form [formGroup]="this.employeeService.form" (ngSubmit)="onSubmit()" class="fomr-horizontal" autocomplete="off">
+
+      <input type="hidden" name="$key" id="$key" formControlName="$key">
+
+      <div class="form-group">
+        <label for="FullName" class="control-label col-xs-2">Full Name</label>
+        <div class="col-xs-6">
+          <input class="form-control" id="FullName" name="FullName" formControlName="FullName" placeholder="Full Name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Email" class="control-label col-xs-2">Email</label>
+        <div class="col-xs-6">
+          <input type="email" class="form-control" id="Email" name="Email" formControlName="Email" placeholder="Email">
+        </div>
+      </div>
+
+      
+          <div class="btn-toolbar  pull-right">
+              <button type="submit" class="btn btn-success" [disabled]="!this.employeeService.form.valid"> <i class="fa fa-database"></i>   Save </button>
+              <button type="button" class="btn btn-danger" (click)="onResetForm(this.employeeService.form)"> <i class="fa fa-trash-o"></i>  Cancel </button>
+          </div>
+      
+
+
+    </form>
+  </div>
+</div>

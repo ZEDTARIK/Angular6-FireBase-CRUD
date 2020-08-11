@@ -1,0 +1,34 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">
+        <span class="badge badge-pill badge-info"> List Employees </span>
+    </div>
+    <div class="card-body">
+      
+      <div class="row" style="margin: 10px;">
+        <form class="form-horizontal" autocomplete="off">
+          <div class="from-group">
+              <input class="form-control form-control-sm" style="width: 400px;" name="searchInput" placeholder="Searching ... " #searchInput ="ngModel" [(ngModel)]="searchTxt">
+          </div>
+        </form>
+      </div>
+
+      <table class="table table-hover table-bordered">
+        <thead>
+          <th style="width: 115px;">Actions</th>
+          <th>Full Name</th>
+          <th>Email</th>
+        </thead>
+        <tbody *ngFor="let employee of employeeArry">
+          <tr *ngIf="onFilter(employee)">
+            <td>
+                <a class="btn btn-warning btn-sm" (click)="this.employeeService.populateForm(employee)"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger btn-sm" (click)="onDelete(employee.$key)"><i class="fa fa-trash-o"></i> </a>
+            </td>
+            <td>{{ employee.FullName}}</td>
+            <td>{{ employee.Email}}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
